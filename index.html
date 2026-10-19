@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f4f0e7">
+<title>My To-Do List</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<main class="app">
+  <header>
+    <div class="avatar" id="avatar">U</div>
+    <div class="profile">
+      <h1 id="profileName">Nama Pengguna</h1>
+      <p id="profileRole">Mahasiswa</p>
+    </div>
+    <button class="edit-profile" id="editProfileBtn" type="button">Edit profil</button>
+  </header>
+
+  <section class="date-card" aria-label="Tanggal hari ini">
+    <div><div class="eyebrow">Hari ini</div><strong id="todayText">Memuat tanggal…</strong></div>
+    <div class="day-number" id="dayNumber">--</div>
+  </section>
+
+  <section class="panel">
+    <h2>Tambah tugas baru ✨</h2>
+    <form id="taskForm">
+      <label class="field-label" for="taskTitle">Nama tugas</label>
+      <input class="task-input" id="taskTitle" name="taskTitle" maxlength="180" placeholder="Contoh: Mengerjakan tugas kuliah..." autocomplete="off" required>
+      <div class="form-row">
+        <div>
+          <label class="field-label" for="taskDate">Tanggal tugas</label>
+          <input class="task-input" id="taskDate" name="taskDate" type="date" required>
+        </div>
+        <div>
+          <span class="field-label">Level prioritas</span>
+          <div class="priority-options">
+            <label class="priority-option low"><input type="radio" name="priority" value="Low"><span>Low</span></label>
+            <label class="priority-option medium"><input type="radio" name="priority" value="Medium" checked><span>Medium</span></label>
+            <label class="priority-option high"><input type="radio" name="priority" value="High"><span>High</span></label>
+          </div>
+        </div>
+      </div>
+      <button class="primary" type="submit">＋ Tambah Tugas</button>
+    </form>
+  </section>
+
+  <section class="panel">
+    <div class="section-heading"><h2>To Do</h2><span class="count" id="todoCount">0 tugas</span></div>
+    <div class="filter-row">
+      <label for="filterDate">Tampilkan tanggal:</label>
+      <input id="filterDate" type="date" aria-label="Filter tugas berdasarkan tanggal">
+      <button class="edit-profile" id="showAllBtn" type="button">Semua tanggal</button>
+    </div>
+    <div class="task-list" id="todoList"></div>
+  </section>
+
+  <section class="panel done-panel">
+    <div class="section-heading"><h2><span class="done-mark">✓</span> Done</h2><span class="count" id="doneCount">0 tugas</span></div>
+    <div class="task-list" id="doneList"></div>
+  </section>
+
+  <button class="danger" id="deleteAllBtn" type="button">Hapus Semua Tugas</button>
+  <p class="footnote">Tugas disimpan di browser perangkat ini secara otomatis.</p>
+</main>
+
+<dialog id="profileDialog">
+  <form id="profileForm">
+    <h2>Edit profil</h2>
+    <label class="field-label" for="nameInput">Nama</label>
+    <input class="task-input" id="nameInput" maxlength="60" placeholder="Nama kamu" required>
+    <label class="field-label" for="roleInput" style="margin-top:14px">Jabatan / peran</label>
+    <input class="task-input" id="roleInput" maxlength="60" placeholder="Contoh: Mahasiswa" required>
+    <div class="dialog-actions"><button type="button" id="cancelProfile">Batal</button><button class="save" type="submit">Simpan</button></div>
+  </form>
+</dialog>
+
+<script src="script.js"></script>
+</body>
+</html>

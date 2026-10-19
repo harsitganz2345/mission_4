@@ -1,0 +1,68 @@
+:root {
+    --paper: #f4f0e7; --surface: #fffdf8; --ink: #242321; --muted: #77736c;
+    --accent: #ff604c; --line: #e4ded2; --low: #52885c; --medium: #a8750c; --high: #d94f43;
+    --shadow: 0 10px 28px rgba(44, 36, 24, .07);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+  button, input, select { font: inherit; }
+  button { cursor: pointer; }
+  .app { width: min(100% - 28px, 760px); margin: 0 auto; padding: 28px 0 48px; }
+  header { display: flex; align-items: center; gap: 14px; margin-bottom: 28px; }
+  .avatar { display: grid; place-items: center; width: 58px; height: 58px; flex: 0 0 58px; border-radius: 50%; background: var(--accent); color: white; font-size: 24px; font-weight: 800; }
+  .profile { min-width: 0; flex: 1; }
+  .profile h1 { margin: 0 0 4px; font-size: clamp(1.35rem, 4vw, 1.8rem); letter-spacing: -.04em; }
+  .profile p { margin: 0; color: var(--muted); }
+  .edit-profile { border: 1px solid var(--line); background: var(--surface); padding: 9px 12px; border-radius: 12px; color: var(--ink); }
+  .date-card { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 18px 20px; border-radius: 18px; background: #292825; color: white; margin-bottom: 22px; }
+  .date-card .eyebrow { color: #c9c5bc; font-size: .76rem; text-transform: uppercase; letter-spacing: .12em; }
+  .date-card strong { display: block; margin-top: 5px; font-size: 1.1rem; }
+  .date-card .day-number { font-size: 2rem; font-weight: 800; color: #ff927f; }
+  .panel { background: var(--surface); border: 1px solid rgba(228,222,210,.8); border-radius: 20px; padding: 20px; margin-bottom: 18px; box-shadow: var(--shadow); }
+  .panel h2 { margin: 0 0 16px; font-size: 1.12rem; letter-spacing: -.02em; }
+  .field-label { display: block; margin: 0 0 7px; font-size: .86rem; font-weight: 700; }
+  .task-input { width: 100%; padding: 13px 14px; border: 1px solid var(--line); border-radius: 12px; outline: none; background: white; color: var(--ink); }
+  .task-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px #ff604c20; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 14px; }
+  .priority-options { display: flex; gap: 7px; }
+  .priority-option { position: relative; flex: 1; }
+  .priority-option input { position: absolute; opacity: 0; pointer-events: none; }
+  .priority-option span { display: block; text-align: center; padding: 10px 6px; border: 1px solid var(--line); border-radius: 10px; font-size: .88rem; background: white; }
+  .priority-option input:checked + span { border-color: currentColor; box-shadow: inset 0 0 0 1px currentColor; background: #fff8f4; }
+  .priority-option.low { color: var(--low); } .priority-option.medium { color: var(--medium); } .priority-option.high { color: var(--high); }
+  .primary { width: 100%; border: 0; border-radius: 12px; background: var(--accent); color: white; font-weight: 750; padding: 13px 16px; margin-top: 16px; transition: transform .15s, opacity .15s; }
+  .primary:hover { opacity: .92; } .primary:active { transform: scale(.99); }
+  .section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; }
+  .section-heading h2 { margin: 0; }
+  .count { font-size: .78rem; color: var(--muted); background: var(--paper); border-radius: 99px; padding: 5px 9px; white-space: nowrap; }
+  .filter-row { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin-bottom: 14px; }
+  .filter-row label { color: var(--muted); font-size: .85rem; }
+  .filter-row input { min-width: 0; border: 1px solid var(--line); background: white; border-radius: 9px; padding: 8px; }
+  .task-list { display: grid; gap: 9px; }
+  .task { display: flex; align-items: flex-start; gap: 11px; border: 1px solid var(--line); border-radius: 14px; padding: 13px; background: white; }
+  .task-check { appearance: none; width: 21px; height: 21px; flex: 0 0 21px; margin: 1px 0 0; border: 1.7px solid #b7b1a6; border-radius: 6px; display: grid; place-items: center; cursor: pointer; }
+  .task-check:checked { background: var(--low); border-color: var(--low); }
+  .task-check:checked::after { content: "✓"; color: white; font-size: 14px; font-weight: 900; }
+  .task-main { flex: 1; min-width: 0; }
+  .task-title { overflow-wrap: anywhere; font-weight: 650; line-height: 1.4; }
+  .task.done .task-title { color: #8b877f; text-decoration: line-through; }
+  .task-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; margin-top: 7px; color: var(--muted); font-size: .76rem; }
+  .pill { display: inline-flex; border-radius: 99px; padding: 4px 8px; font-weight: 700; }
+  .pill.low { color: var(--low); background: #e9f2e9; } .pill.medium { color: var(--medium); background: #fff2d6; } .pill.high { color: var(--high); background: #ffebe8; }
+  .delete-one { flex: 0 0 auto; border: 0; background: transparent; color: #8a8379; border-radius: 8px; padding: 5px 7px; }
+  .delete-one:hover { color: var(--high); background: #ffebe8; }
+  .empty { border: 1px dashed #d9d1c4; border-radius: 14px; padding: 22px 14px; text-align: center; color: var(--muted); font-size: .9rem; }
+  .done-panel { margin-top: 18px; }
+  .done-panel h2 { display: flex; align-items: center; gap: 8px; }
+  .done-mark { color: var(--low); }
+  .danger { width: 100%; border: 1px solid #f0b8b0; border-radius: 12px; background: transparent; color: #c44337; font-weight: 750; padding: 12px 16px; margin-top: 4px; }
+  .danger:hover { background: #ffebe8; }
+  .footnote { text-align: center; color: var(--muted); font-size: .78rem; margin-top: 22px; }
+  dialog { width: min(92vw, 420px); border: 0; border-radius: 18px; padding: 22px; box-shadow: 0 20px 70px #0003; }
+  dialog::backdrop { background: #201d19a6; }
+  dialog h2 { margin-top: 0; }
+  .dialog-actions { display: flex; gap: 8px; margin-top: 16px; }
+  .dialog-actions button { flex: 1; border-radius: 10px; padding: 11px; border: 1px solid var(--line); background: white; }
+  .dialog-actions .save { background: var(--accent); border-color: var(--accent); color: white; }
+  @media (min-width: 680px) { .app { padding-top: 42px; } .task-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; } .form-row { margin-top: 0; } }
+  @media (max-width: 420px) { .app { width: min(100% - 20px, 760px); padding-top: 18px; } .panel { padding: 15px; border-radius: 17px; } .form-row { grid-template-columns: 1fr; } .date-card { padding: 15px; } .edit-profile { font-size: .8rem; padding: 8px; } }
